@@ -1,23 +1,28 @@
-import BlogItem from './BlogItem'
-import posts from '../lib/posts'
-import {useState} from 'react'
+import BlogItem from "./BlogItem";
+import posts from "../lib/posts";
+import { useState } from "react";
+import {Link} from 'react-router-dom'
 
-const  BlogList = () => {
+const BlogList = () => {
+  const [blogPosts] = useState(posts);
 
-    const [blogPosts, setBlogPosts] = useState(posts)
+  console.log(blogPosts);
+  return (
+    <div>
+      <h1>Blog Posts</h1>
+      <ul>
+        {blogPosts.map((post) => (
+          // <BlogItem key={post.id} post={post}/>
+          <li key={post.id}>
+            {/* Clicking this title will navigate to /blog/:slug */}
+            <Link to={`/blogs/${post.slug}`}>
+              <h2>{post.title}</h2>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-    console.log(blogPosts)
-    return (
-        <div>
-            <h1>Blog  Posts</h1>
-            <ul>
-
-            {blogPosts.map((post) => 
-                <BlogItem key={post.id} post={post}/>
-            )}
-            </ul>
-        </div>
-    )
-}
-
-export default BlogList
+export default BlogList;
