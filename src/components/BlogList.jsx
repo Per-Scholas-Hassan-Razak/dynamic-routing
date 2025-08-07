@@ -1,4 +1,5 @@
-import { posts } from './lib/posts'
+import BlogItem from './BlogItem'
+import posts from '../lib/posts'
 import {useState} from 'react'
 
 const  BlogList = () => {
@@ -9,6 +10,12 @@ const  BlogList = () => {
     return (
         <div>
             <h1>Blog  Posts</h1>
+            <ul>
+
+            {blogPosts.map((post) => 
+                <BlogItem key={post.id} post={post}/>
+            )}
+            </ul>
         </div>
     )
 }

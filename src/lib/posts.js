@@ -1,4 +1,4 @@
-export const posts = [
+const posts = [
   {
     id: 1,
     slug: "my-first-post",
@@ -18,3 +18,5 @@ export const posts = [
     content: "Explore how to use dynamic routing with URL parameters."
   }
 ];
+
+export default posts
