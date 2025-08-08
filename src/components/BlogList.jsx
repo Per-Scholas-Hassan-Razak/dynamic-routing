@@ -12,9 +12,7 @@ const BlogList = () => {
       <h1>Blog Posts</h1>
       <ul>
         {blogPosts.map((post) => (
-          // <BlogItem key={post.id} post={post}/>
           <li key={post.id}>
-            {/* Clicking this title will navigate to /blog/:slug */}
             <Link to={`/blogs/${post.slug}`}>
               <h2>{post.title}</h2>
             </Link>
